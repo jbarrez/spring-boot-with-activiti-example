@@ -57,6 +57,12 @@
 			<artifactId>subethasmtp-wiser</artifactId>
 			<version>1.2</version>
 			<scope>test</scope>
+			<exclusions>
+			  	<exclusion>
+			  		<groupId>javax.servlet</groupId>
+			  		<artifactId>servlet-api</artifactId>
+			 	</exclusion>
+			</exclusions>
 		</dependency>
 
 	</dependencies>
