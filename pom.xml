@@ -7,39 +7,43 @@
 	<artifactId>spring-boot-example</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.0.RC1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
 	<properties>
-		<!-- Depending on the current snapshot build of Activiti, which depends 
-			on the latest and greatest Spring Boot. The current stable build (Activiti 
-			5.17.0), depends on Spring Boot 1.1.6. -->
-		<activiti.version>5.17.1-SNAPSHOT</activiti.version>
-		<spring.boot.version>1.2.2.RELEASE</spring.boot.version>
+ 		<activiti.version>5.19.0</activiti.version>
+		<!--<spring.boot.version>1.2.2.RELEASE</spring.boot.version>-->
 	</properties>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.activiti</groupId>
-			<artifactId>spring-boot-starter-basic</artifactId>
+			<artifactId>activiti-spring-boot-starter-basic</artifactId>
 			<version>${activiti.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.185</version>
-		</dependency>
+ 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
-			<artifactId>spring-boot-starter-rest-api</artifactId>
+			<artifactId>activiti-spring-boot-starter-rest-api</artifactId>
+			<!--<artifactId>spring-boot-starter-rest-api</artifactId>-->
 			<version>${activiti.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>activiti-spring-boot-starter-actuator</artifactId>
 			<version>${activiti.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
-			<artifactId>spring-boot-starter-jpa</artifactId>
+			<artifactId>activiti-spring-boot-starter-jpa</artifactId>
 			<version>${activiti.version}</version>
 		</dependency>
 
@@ -49,8 +53,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${spring.boot.version}</version>
-			<scope>test</scope>
+ 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.subethamail</groupId>
@@ -72,8 +75,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>1.2.2.RELEASE</version>
-				<executions>
+ 				<executions>
 					<execution>
 						<goals>
 							<goal>repackage</goal>
@@ -84,17 +86,5 @@
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>snapshots-repo</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 
 </project>

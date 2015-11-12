@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 @RestController
@@ -19,15 +19,15 @@ public class HireProcessRestController {
     private ApplicantRepository applicantRepository;
 
     @ResponseStatus(value = HttpStatus.OK)
-    @RequestMapping(value = "/start-hire-process", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/start-hire-process", method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public void startHireProcess(@RequestBody Map<String, String> data) {
 
         Applicant applicant = new Applicant(data.get("name"), data.get("email"), data.get("phoneNumber"));
         applicantRepository.save(applicant);
 
-        Map<String, Object> variables = new HashMap<String, Object>();
-        variables.put("applicant", applicant);
-        runtimeService.startProcessInstanceByKey("hireProcessWithJpa", variables);
+        Map<String, Object> vars = Collections.<String, Object>singletonMap("applicant", applicant);
+        runtimeService.startProcessInstanceByKey("hireProcessWithJpa", vars);
     }
 
 }

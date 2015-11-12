@@ -13,11 +13,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.TestRestTemplate;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.client.RestTemplate;
 import org.subethamail.wiser.Wiser;
 
 import java.util.HashMap;
@@ -30,10 +27,17 @@ import java.util.Map;
 @IntegrationTest
 public class HireProcessTest {
 
-    @Autowired private RuntimeService runtimeService;
-    @Autowired private TaskService taskService;
-    @Autowired private HistoryService historyService;
-    @Autowired private ApplicantRepository applicantRepository;
+    @Autowired
+    private RuntimeService runtimeService;
+
+    @Autowired
+    private TaskService taskService;
+
+    @Autowired
+    private HistoryService historyService;
+
+    @Autowired
+    private ApplicantRepository applicantRepository;
 
     private Wiser wiser;
 
