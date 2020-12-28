@@ -139,7 +139,7 @@ Let’s spice things up a bit, and add following dependency to our pom.xml:
 <dependency>
     <groupId>org.activiti</groupId>
     <artifactId>spring-boot-starter-rest-api</artifactId>
-    <version>${activiti.version}}</version>
+    <version>${activiti.version}</version>
 </dependency>
 ```
 
