@@ -37,6 +37,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B clean package sonar:sonar --file pom.xml
+        run: mvn -B clean package --file pom.xml
       - name: Codecov
         uses: codecov/codecov-action@v2.0.1
